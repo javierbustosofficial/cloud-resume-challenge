@@ -25,3 +25,5 @@ This is the [generated output](./docs/resume_aigen_12-27-25.html). And below is 
 ![](./docs/Screenshot%202025-12-27%20at%2012.48.04 PM.png)
 
 I'd say it did a pretty good job as a first draft, but I do see some issues with some words being bolded that shouldn't be, and it's definetely more cramped than I'd like. I'll be rafactoring the code to improve readability and formatting at a later point, but for now this is good enough for an MVP.
+
+I went ahead and instructed Chat GPT to split the original output into separate .html and .css files, which are now located [here](./public/)
