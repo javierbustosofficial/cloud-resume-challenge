@@ -64,3 +64,5 @@ As you can see, the http server is now serving ./public
 And here's what the site looks on the locally hosted http server
 
 ![](/frontend/docs/resume%20website%20local%20server.png)
+
+## HTML/CSS Adjustments
