@@ -21,24 +21,36 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
+  background: rgb(240,240,240);
 }
 
 header{
-  background: rgb(255,0,0);
+  background: rgb(0,0,0);
   width: 100%;
+}
+
+header nav{ 
+  display: flex;
+  flex-direction: row;
+}
+
+header nav a{  
+ padding: 24px; 
+ color: rgb(255,255,255);
 }
 
 .article{
   width: 1100px;
   font-size: 12pt;
-  line-height: 1.45;
+  line-height: 1.50;
+  background: rgb(255,255,255);
+  padding: 20px 50px;
 }
 
 /* Heading */
 .name{
   margin: 0 0 8px;
-  font-size: 54px;
+  font-size: 48px;
   line-height: 1;
   font-weight: 800;
   letter-spacing: .5px;
@@ -50,7 +62,7 @@ header{
   background: #000;
   color: #fff;
   padding: 8px 14px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   display: inline-block;
   width: 100%;
@@ -66,14 +78,14 @@ header{
 }
 .section-title{
   margin: 18px 0 10px;
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 900;
   border-bottom: 3px solid var(--accent);
   padding-bottom: 6px;
 }
 .summary{
   margin: 0;
-  font-size: 18px;
+  font-size: 12pt;
   line-height: 1.35;
   color: var(--muted);
 }
@@ -107,7 +119,7 @@ header{
   margin-bottom: 2px;
 }
 .job-title{
-  font-size: 22px;
+  font-size: 16pt;
   font-weight: 900;
   margin: 0;
 }
@@ -118,7 +130,7 @@ header{
   white-space: nowrap;
 }
 .job-company{
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 900;
   margin: 0 0 6px;
 }
@@ -126,7 +138,6 @@ header{
 /* Certifications */
 .plain-lines{
   margin: 0;
-  font-size: 20px;
   line-height: 1.35;
 }
 
@@ -138,10 +149,9 @@ header{
   align-items: baseline;
 }
 .edu-left{
-  font-size: 22px;
   margin: 0;
 }
-.edu-left strong{ font-weight: 900; }
+
 .edu-date{
   font-size: 20px;
   margin: 0;
@@ -149,7 +159,7 @@ header{
 }
 .edu-school{
   margin: 2px 0 0;
-  font-size: 22px;
+  font-size: 16pt;
   font-weight: 900;
 }
 
@@ -168,7 +178,7 @@ header{
   min-width: 0;
 }
 .lang-label{
-  font-size: 22px;
+  font-size: 16pt;
   margin: 0 0 6px;
 }
 .bar{
@@ -185,7 +195,7 @@ header{
 }
 .lang-level{
   margin: 0;
-  font-size: 22px;
+  font-size: 16pt;
 }
 
 /* Small responsiveness tweak */
