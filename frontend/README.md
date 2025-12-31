@@ -66,3 +66,7 @@ And here's what the site looks on the locally hosted http server
 ![](/frontend/docs/resume%20website%20local%20server.png)
 
 ## HTML/CSS Adjustments
+
+Did some restructuring of the HTML code to better separate out the elements for editing. Added a navigation bar, since this site will consist of a few different pages, and did some adjustments to the line spacing, font sizing, and bolding of the text. Here is the current result:
+
+![](/frontend/docs/resume_after_edits_12-31.png)
