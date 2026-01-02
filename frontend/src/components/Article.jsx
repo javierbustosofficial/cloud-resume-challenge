@@ -1,0 +1,202 @@
+import React from "react";
+
+export default function Article() {
+  return (
+    <article className="article">
+      <section className="section">
+        <h1 className="name">
+          <span className="first">JAVIER</span> <span className="last">BUSTOS</span>
+        </h1>
+
+        <div className="contact-bar">
+          Austin, TX |{" "}
+          <a href="mailto:javierbustosofficial@gmail.com">javierbustosofficial@gmail.com</a> | LinkedIn:{" "}
+          <a href="https://www.linkedin.com/in/javierbustosofficial">
+            www.linkedin.com/in/javierbustosofficial
+          </a>
+        </div>
+      </section>
+
+      <section className="section">
+        <h2 className="section-title">Professional Summary</h2>
+        <p className="summary">
+          Experienced professional with 6 years of experience providing systems administration and IT support for business
+          clients and internal users. Skilled in resolving complex hardware, software, and network issues while prioritizing
+          customer satisfaction. Proven ability to deliver reliable IT solutions that improve efficiency and minimize downtime.
+        </p>
+      </section>
+
+      <section className="section">
+        <h2 className="section-title">Skills</h2>
+
+        <div className="two-col">
+          <div>
+            <ul className="ul-skills">
+              <li>AWS services: EC2, VPC design, IAM policies and permissions, S3 storage, CloudWatch monitoring, and more</li>
+              <li>Infrastructure troubleshooting across Windows and cloud-hosted environments</li>
+              <li>User account management in Active Directory and Microsoft 365</li>
+              <li>Windows workstation deployment and configuration (RMM, imaging, tooling)</li>
+            </ul>
+          </div>
+
+          <div>
+            <ul className="ul-skills">
+              <li>Network essentials: DHCP/DNS, VLANs, routing basics, switch and firewall configuration support</li>
+              <li>Incident handling, root-cause analysis, and clear technical documentation</li>
+              <li>Tier 1 and Tier 2 technical support across phone, email, chat, and remote tools</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <h2 className="section-title">Work History</h2>
+
+        <div className="job">
+          <div className="job-head">
+            <p className="job-title">Systems Administrator III</p>
+            <p className="job-dates">12/2023 - Current</p>
+          </div>
+          <p className="job-company">Texas Health and Human Services Commission – Austin, TX</p>
+          <ul>
+            <li>Senior technical position within the Deskside Support team</li>
+            <li>
+              Assist with senior-level technical projects and assignments, such as agency-wide device refreshes and
+              departmental process enhancements
+            </li>
+            <li>Daily monitoring of service and problem tickets to respond and resolve within established SLAs</li>
+            <li>Perform regular maintenance tasks to ensure optimal performance and reliability of computer systems</li>
+            <li>Set up and configure computer systems, including software, hardware, operating systems, and network settings</li>
+            <li>Maintain disaster recovery plans to ensure data integrity and system availability</li>
+            <li>Provide technical assistance to end users, including troubleshooting and training</li>
+          </ul>
+        </div>
+
+        <div className="job">
+          <div className="job-head">
+            <p className="job-title">Deskside Support Technician (Contract)</p>
+            <p className="job-dates">01/2022 - 12/2023</p>
+          </div>
+          <p className="job-company">Texas Health and Human Services Commission – Austin, TX</p>
+          <ul>
+            <li>
+              Diagnosed and resolved basic-to-advanced hardware, software, network, or mobile device problems over the phone,
+              email, or chat; escalated issues to specialized staff or technical team leads when necessary
+            </li>
+            <li>Performed end-user device setups (desktops, laptops, mobile phones)</li>
+            <li>
+              Documented work performed using the Remedy ticketing system and ensured all service requests were completed in
+              accordance with the service-level agreement
+            </li>
+            <li>Maintained accurate inventory of hardware assets</li>
+            <li>Acted as Tier 2 support for end users within the agency</li>
+            <li>Provided excellent customer service to users ranging from entry-level positions to high-level executives and VIPs</li>
+          </ul>
+        </div>
+
+        <div className="job">
+          <div className="job-head">
+            <p className="job-title">Help Desk Technician II</p>
+            <p className="job-dates">11/2020 - 04/2021</p>
+          </div>
+          <p className="job-company">Contigo Technology – Austin, TX</p>
+          <ul>
+            <li>Resolved escalated tickets assigned by the Help Desk Tier 1 team</li>
+            <li>Traveled on-site frequently to resolve end-user issues, deploy networking equipment, and assist with IT projects</li>
+            <li>Assisted customers remotely via chat session, email, and phone</li>
+            <li>Assigned as the primary technician for a healthcare client with 13 offices in Central Texas</li>
+            <li>Provided support and assistance to the Help Desk Tier 1 team</li>
+          </ul>
+        </div>
+
+        <div className="job">
+          <div className="job-head">
+            <p className="job-title">Help Desk Technician I</p>
+            <p className="job-dates">12/2019 - 11/2020</p>
+          </div>
+          <p className="job-company">Contigo Technology – Austin, TX</p>
+          <ul>
+            <li>Provided technical assistance with computer hardware and software</li>
+            <li>Resolved issues for clients via phone, email, or remote chat session</li>
+            <li>
+              Documented all end-user information, including the nature of the issue and resolution using the AutoTask PSA
+              ticketing system
+            </li>
+            <li>Created internal documentation to aid other technicians in problem resolution</li>
+            <li>Traveled on-site to resolve any issues that could not be resolved remotely</li>
+          </ul>
+        </div>
+
+        <div className="job">
+          <div className="job-head">
+            <p className="job-title">PC Setup Technician</p>
+            <p className="job-dates">05/2019 - 12/2019</p>
+          </div>
+          <p className="job-company">Contigo Technology – Austin, TX</p>
+          <ul>
+            <li>
+              Configured and maintained end-user PCs by deploying RMM, antivirus, helpdesk tools, and company-specific
+              applications
+            </li>
+            <li>
+              Worked with Office 365, Active Directory, and other company-specific applications to create and manage end-user
+              accounts
+            </li>
+            <li>On-site travel to diagnose and repair hardware-related issues</li>
+            <li>Provided recommendations for hardware upgrades and purchases</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="section">
+        <h2 className="section-title">Certifications</h2>
+        <p className="plain-lines">
+          AWS Certified Solutions Architect - Associate
+          <br />
+          AWS Certified Developer – Associate
+        </p>
+      </section>
+
+      <section className="section">
+        <h2 className="section-title">Education</h2>
+        <div className="edu-row">
+          <p className="edu-school">
+            <strong>Texas State Technical College - Hutto, TX</strong>
+          </p>
+          <p className="edu-date">12/2019</p>
+        </div>
+        <p className="edu-left">Associate of Applied Science: Cybersecurity Technology</p>
+      </section>
+
+      <section className="section">
+        <h2 className="section-title">Languages</h2>
+
+        <div className="langs">
+          <div className="lang">
+            <p className="lang-label">English</p>
+            <div className="bar" aria-label="English proficiency">
+              <span className="seg" />
+              <span className="seg" />
+              <span className="seg" />
+              <span className="seg" />
+              <span className="seg" />
+            </div>
+            <p className="lang-level">Native or Bilingual</p>
+          </div>
+
+          <div className="lang">
+            <p className="lang-label">Spanish</p>
+            <div className="bar" aria-label="Spanish proficiency">
+              <span className="seg" />
+              <span className="seg" />
+              <span className="seg" />
+              <span className="seg" />
+              <span className="seg" />
+            </div>
+            <p className="lang-level">Native or Bilingual</p>
+          </div>
+        </div>
+      </section>
+    </article>
+  );
+}
