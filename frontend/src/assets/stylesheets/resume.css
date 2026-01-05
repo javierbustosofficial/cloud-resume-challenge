@@ -11,7 +11,7 @@
 }
 
 .article{
-  width: min(1100px, 100%);
+  width: min(1000px, 100%);
   font-size: 12pt;
   line-height: 1.60;
   background: rgb(255,255,255);

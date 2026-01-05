@@ -38,4 +38,10 @@ header nav{
 header nav a{  
  padding: 24px; 
  color: rgb(255,255,255);
+ text-decoration: none;
+ transition: transform 0.2s ease, box-shadow 0.2s ease;
+ &:hover {
+  text-decoration: underline;
+  transform: scale(1.06);
+ }
 }
