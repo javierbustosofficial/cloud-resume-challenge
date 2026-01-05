@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import reactLogo from '../assets/react.svg'
-import '../index.css'
+import '../assets/stylesheets/default.css'
 import Header from '../components/Header';
 
 function Projects() {

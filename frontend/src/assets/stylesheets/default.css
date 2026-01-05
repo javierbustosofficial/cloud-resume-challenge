@@ -1,0 +1,41 @@
+:root{
+  --accent: #2f6f3e;   /* green */
+  --text: #111;
+  --muted: #333;
+}
+
+*{ 
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0px;
+  padding: 0px 0px;
+  background: #f3f3f3;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.page{
+  height: 100%;
+  width: 100%;           
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(240,240,240);
+}
+
+header{
+  background: rgb(0,0,0);
+  width: 100%;
+}
+
+header nav{ 
+  display: flex;
+  flex-direction: row;
+}
+
+header nav a{  
+ padding: 24px; 
+ color: rgb(255,255,255);
+}

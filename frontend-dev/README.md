@@ -75,4 +75,4 @@ Did some restructuring of the HTML code to better separate out the elements for 
 
 Will be using React to build the fronten (as it's one of the more popular frameworks) along with vite.js as the build tool.
 
-So far I've created two React components that render the header+navigation bar and resume page. Currently using the "main" element from the source HTML as the main layout.
+So far I've created two React components that render the header+navigation bar and resume page. Currently using the "main" element from the source HTML as the base layout.
