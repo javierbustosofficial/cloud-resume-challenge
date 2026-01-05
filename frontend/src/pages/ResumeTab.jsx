@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import reactLogo from '../assets/react.svg'
 import '../assets/stylesheets/resume.css'
-import Header from '../components/Header';
-import Article from '../components/ResumePage';
+import Header from '../components/Header'
+import Article from '../components/ResumePage'
 
 function Resume() {
   const [count, setCount] = useState(0)

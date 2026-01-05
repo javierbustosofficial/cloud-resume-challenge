@@ -1,0 +1,34 @@
+*{ 
+  box-sizing: border-box;
+}
+
+.project_page{
+  width: min(1000px, 100%);
+  font-size: 12pt;
+  line-height: 1.60;
+  background: rgb(255,255,255);
+  padding: 20px 50px;
+  .project_item{
+    display: flex;
+    flex-direction: row;
+    gap: 50px; 
+    .project_info{
+      display: flex;
+      flex-direction: column;
+      a{
+        display: inline-block;
+        background: rgb(0,0,0);
+        color: rgb(255,255,255);
+        align-self: flex-start;
+        padding: 8px 24px;
+        border-radius: 999px;
+        text-decoration: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+       &:hover {
+          transform: scale(1.06);
+          box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+        }
+      }
+    }
+  }
+}
