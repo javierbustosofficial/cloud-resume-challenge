@@ -1,3 +1,5 @@
+@import './breakpoint.css';
+
 *{ 
   box-sizing: border-box;
 }
@@ -20,13 +22,36 @@
         background: rgb(0,0,0);
         color: rgb(255,255,255);
         align-self: flex-start;
-        padding: 8px 24px;
+        padding: 6px 16px;
         border-radius: 999px;
         text-decoration: none;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
-       &:hover {
+          &:hover {
           transform: scale(1.06);
           box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+        }
+      }
+    }
+  }
+}
+
+@media (--small-only){
+
+  .project_page{
+    padding: 20px 20px;
+    .project_item{
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      border-bottom: solid 1px rgb(0,0,0);
+      .project_info{
+        order: 2;
+        padding-bottom: 16px;
+        h2{
+          margin: 19px 0px 0px;
+        }
+        a{
+          align-self: center;
         }
       }
     }
