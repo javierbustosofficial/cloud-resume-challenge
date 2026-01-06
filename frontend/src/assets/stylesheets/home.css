@@ -1,0 +1,11 @@
+.home_page{
+  width: min(1000px, 100%);
+  font-size: 12pt;
+  line-height: 1.60;
+  background: rgb(255,255,255);
+  padding: 20px 50px;
+  .intro_video img {
+    width: 35%;
+    display: flex;
+  }
+}

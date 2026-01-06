@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Cloud Resume Challenge",
+    "handle": "cloud-resume-challenge",
+    "thumbnail": "https://placehold.co/320x200/EEE/31343C",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam urna augue, congue nec lacus in, placerat volutpat est. Vestibulum quis nunc urna. Suspendisse efficitur ultricies augue et scelerisque. Mauris nec nunc nec metus consectetur tincidunt. Proin eleifend tempus odio vel volutpat. Integer tempus mi vitae risus aliquet commodo.",
+    "body_html": "<h1>Hello World</h1>\n<p>This is <strong>bold</strong>, this is <em>italic</em>, and this is a list:</p>\n<ul>\n<li>Item one</li>\n<li>Item two</li>\n<li>Item three</li>\n</ul>\n<p>Here is some code:</p>\n<p><code>python\nprint(\"Hello from markdown\")</code></p>\n<p>And a <a href=\"https://example.com\">link</a>.</p>"
+  }
+]
