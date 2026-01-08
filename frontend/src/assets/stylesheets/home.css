@@ -7,5 +7,11 @@
   .intro_video img {
     width: 35%;
     display: flex;
+    width: 320px;          /* pick a size */
+    aspect-ratio: 1 / 1;   /* forces square */
+    border-radius: 50%;
+    object-fit: cover;     /* fills the square without distortion */
+    display: block;
+    margin-left: auto;
   }
 }
