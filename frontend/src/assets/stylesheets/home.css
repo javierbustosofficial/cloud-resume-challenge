@@ -1,4 +1,4 @@
-.home_page{
+.home_tab{
   width: min(1000px, 100%);
   font-size: 12pt;
   line-height: 1.60;
@@ -13,5 +13,26 @@
     object-fit: cover;     /* fills the square without distortion */
     display: block;
     margin-left: auto;
+  }
+  .posts{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    .post_item{
+      display: flex;
+      flex-direction: row;
+      color: rgb(0,0,0);
+      text-decoration: none;
+      gap: 8px;
+      .name {
+        order: 2;
+      }
+      .date {
+        order: 1;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }

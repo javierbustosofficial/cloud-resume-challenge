@@ -1,5 +1,5 @@
 ---
-Name: Hello World!
+name: Hello World!
 handle: hello-world
 date: '1-7-2025'
 ---
