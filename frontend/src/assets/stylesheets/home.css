@@ -1,9 +1,19 @@
+@import './breakpoint.css';
+
 .home_tab{
   width: min(1000px, 100%);
   font-size: 12pt;
   line-height: 1.60;
   background: rgb(255,255,255);
   padding: 20px 50px;
+.text_and_image{
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  .intro_text{
+      margin: 0;
+      flex: 1;
+  }     
   .intro_video img {
     width: 35%;
     display: flex;
@@ -13,7 +23,8 @@
     object-fit: cover;     /* fills the square without distortion */
     display: block;
     margin-left: auto;
-  }
+  }  
+}  
   .posts{
     display: flex;
     flex-direction: column;
@@ -36,3 +47,38 @@
     }
   }
 }
+
+@media (--small-only){
+
+  .home_tab{
+    padding: 20px 20px;
+    .home_heading{
+      text-align: center;
+      margin: 10px;
+      line-height: 1.35;
+    }
+    .text_and_image{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-bottom: solid 1px rgb(0,0,0);
+      .intro_video img {
+        order: 1;
+        width: 35%;
+        display: flex;
+        width: 200px;          /* pick a size */
+        aspect-ratio: 1 / 1;   /* forces square */
+        border-radius: 50%;
+        object-fit: cover;     /* fills the square without distortion */
+        display: block;
+        margin-left: auto;
+      }
+      .intro_text{
+        padding: 10px 0px;
+        text-align: center;
+        order: 2;
+      }  
+    }  
+  }    
+}
+

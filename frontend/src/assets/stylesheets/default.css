@@ -12,7 +12,6 @@ body{
   margin: 0px;
   padding: 0px 0px;
   background: #f3f3f3;
-  color: var(--text);
   font-family: Georgia, "Times New Roman", serif;
 }
 
@@ -47,7 +46,7 @@ header nav a{
 }
 
 .button{
-  background: rgb(0,0,0);
+  background: var(--accent);
   color: rgb(255,255,255);
   align-self: flex-start;
   display: inline-flex;

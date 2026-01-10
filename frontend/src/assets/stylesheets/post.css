@@ -1,7 +1,25 @@
+@import './breakpoint.css';
+
 .post_page{
   width: min(1000px, 100%);
   font-size: 12pt;
   line-height: 1.60;
   background: rgb(255,255,255);
   padding: 20px 50px;
+  .markdown{
+    p img{
+      display: block;
+      margin: 24px auto;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+@media (--small-only){
+  .post_page{
+    h1{
+      line-height: 1.35;
+    }
+  }
 }

@@ -2,22 +2,9 @@
 name: "Cloud Resume Challenge"
 handle: "cloud-resume-challenge"
 thumbnail: "https://placehold.co/320x200/EEE/31343C"
-description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam urna augue,
-  congue nec lacus in, placerat volutpat est. Vestibulum quis nunc urna.
-  Suspendisse efficitur ultricies augue et scelerisque. Mauris nec nunc nec
-  metus consectetur tincidunt. Proin eleifend tempus odio vel volutpat.
-  Integer tempus mi vitae risus aliquet commodo."
+description: "The Cloud Resume Challenge is a hands-on project where I built and deployed my resume as a real cloud application rather than a static webpage. It showcases my ability to design, host, and secure infrastructure using AWS services while following modern cloud and DevOps best practices. The project includes a serverless backend, infrastructure as code, and automated deployments to mirror real-world cloud workflows. It serves as a practical demonstration of how I approach cloud engineering beyond certifications."
 ---
 
-# Hello World
+# Work In Progress!
 
-This is **bold**, this is *italic*, and this is a list:
-
-- Item one
-- Item two
-- Item three
-
-Here is some code:
-
-```python
-print("Hello from markdown")
+This project is still a work in progress! A full write up and video will soon fill this page. Stay tuned!
