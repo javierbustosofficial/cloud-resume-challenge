@@ -6,6 +6,14 @@
   line-height: 1.60;
   background: rgb(255,255,255);
   padding: 20px 50px;
+  .title{
+    text-align: center;
+    font-size: 28pt;
+    margin-bottom: 10px;
+  }
+  .date{
+    text-align: center;
+  }
   .markdown{
     p img{
       display: block;

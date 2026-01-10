@@ -5,7 +5,7 @@ date: '1-8-2025'
 ---
 *AI GENERATED POST - TEMPORARY PLACEHOLDER!*
 
-# My Career Journey: From IT Student to Systems Administrator
+## My Journey So Far: From IT Student to Systems Administrator
 
 My path into IT started at **Texas State Technical College**, where I pursued an Associate of Applied Science in Cybersecurity Technology. While studying, I wasn’t just focused on theory—I wanted real-world exposure as early as possible. I was learning the fundamentals of systems, security, and networking, but I knew experience would be the real differentiator once I entered the field. That mindset pushed me to start working in IT before I had even finished school.
 

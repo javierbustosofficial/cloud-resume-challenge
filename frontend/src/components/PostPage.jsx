@@ -18,7 +18,7 @@ export default function PostPage() {
           <ChevronLeft />
           Back To Home Page
         </Link>
-        <h1>{post.name}</h1>
+        <h1 className="title">{post.name}</h1>
         <div className="date">{post.date}</div>
         <div className="markdown" dangerouslySetInnerHTML={{ __html: post.body_html }} />
       </div>

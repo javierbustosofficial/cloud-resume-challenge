@@ -6,6 +6,10 @@
   line-height: 1.60;
   background: rgb(255,255,255);
   padding: 20px 50px;
+.home_heading{
+  text-align: center;
+  margin-bottom: 16px;
+}
 .text_and_image{
   display: flex;
   align-items: center;

@@ -20,7 +20,7 @@ export default function Article() {
       <section className="section">
         <h2 className="section-title">Professional Summary</h2>
         <p className="summary">
-          Experienced professional with 6 years of experience providing systems administration and IT support for business
+          Technical professional with 6 years of experience providing systems administration and IT support for business
           clients and internal users. Skilled in resolving complex hardware, software, and network issues while prioritizing
           customer satisfaction. Proven ability to deliver reliable IT solutions that improve efficiency and minimize downtime.
         </p>
