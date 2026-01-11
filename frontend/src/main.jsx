@@ -7,7 +7,6 @@ import Projects from './pages/ProjectsTab.jsx'
 import ProjectPage from './components/ProjectPage.jsx'
 import PostPage from './components/PostPage.jsx'
 
-
 createRoot(document.querySelector('main')).render(
   <BrowserRouter>
     <Routes>

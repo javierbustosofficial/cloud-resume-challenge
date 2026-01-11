@@ -1,11 +1,5 @@
 @import './breakpoint.css';
 
-:root{
-  --accent: #2f6f3e;   /* green */
-  --text: #111;
-  --muted: #333;
-}
-
 *{ 
   box-sizing: border-box;
 }
@@ -28,7 +22,7 @@
         }
       a{
         display: inline-block;
-        background: var(--accent);
+        background: rgb(0,0,0);
         color: rgb(255,255,255);
         align-self: flex-start;
         padding: 6px 16px;

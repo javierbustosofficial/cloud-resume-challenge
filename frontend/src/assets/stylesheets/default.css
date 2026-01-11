@@ -1,8 +1,4 @@
-:root{
-  --accent: #2f6f3e;   /* green */
-  --text: #111;
-  --muted: #333;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap');
 
 *{ 
   box-sizing: border-box;
@@ -12,7 +8,12 @@ body{
   margin: 0px;
   padding: 0px 0px;
   background: #f3f3f3;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .page{
@@ -46,7 +47,7 @@ header nav a{
 }
 
 .button{
-  background: var(--accent);
+  background: rgb(0,0,0);
   color: rgb(255,255,255);
   align-self: flex-start;
   display: inline-flex;
@@ -67,7 +68,7 @@ header nav a{
   display: flex;
   justify-content: center;
   .view_counter{
-    background: var(--accent);
+    background: rgb(0,0,0);
     color: rgb(255,255,255);
     padding: 4px 12px;
     border-radius: 999px;

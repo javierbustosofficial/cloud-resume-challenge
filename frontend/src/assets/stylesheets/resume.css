@@ -25,8 +25,8 @@
     font-weight: 800;
     letter-spacing: .5px;
 
-    .first{ color: #000; }
-    .last{ color: var(--accent); }
+    .first{ color: rgb(0,0,0); }
+    .last{ color:rgb(0,0,0); } 
   }
 
   .contact-bar{
@@ -52,7 +52,7 @@
       margin: 18px 0 10px;
       font-size: 23pt;
       font-weight: 900;
-      border-bottom: 3px solid var(--accent);
+      border-bottom: 3px solid rgb(0,0,0);
       padding-bottom: 6px;
     }
 
