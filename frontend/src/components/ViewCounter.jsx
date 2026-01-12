@@ -5,13 +5,13 @@ export default function ViewCounter() {
   const endpoint = import.meta.env.VITE_COUNTER_ENDPOINT;
 
   useEffect(() => {
-    fetch("/counter")
+    fetch(endpoint + "/counter")
       .then((r) => r.json())
       .then((d) => setCount(d.count));
   }, []);
 
   const increment = async () => {
-    const r = await fetch("/counter", { method: "POST" });
+    const r = await fetch(endpoint + "/counter", { method: "POST" });
     const d = await r.json();
     setCount(d.count);
   };

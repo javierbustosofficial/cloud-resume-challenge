@@ -109,6 +109,12 @@ resource "aws_lambda_function" "counter" {
 resource "aws_apigatewayv2_api" "http_api" {
   name          = "counter-http-api"
   protocol_type = "HTTP"
+  cors_configuration {
+    allow_origins = ["https://javier-bustos.com", "https://www.javier-bustos.com"]
+    allow_methods = ["GET", "POST", "OPTIONS"]
+    allow_headers = ["content-type"]
+    max_age       = 3600
+  }
 }
 
 resource "aws_apigatewayv2_integration" "lambda" {
@@ -134,6 +140,11 @@ resource "aws_apigatewayv2_stage" "default" {
   api_id      = aws_apigatewayv2_api.http_api.id
   name        = "$default"
   auto_deploy = true
+
+  default_route_settings {
+    throttling_rate_limit  = 1
+    throttling_burst_limit = 1
+  }
 }
 
 # Permit API Gateway to invoke Lambda

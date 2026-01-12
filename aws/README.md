@@ -261,4 +261,65 @@ Now, I am getting `{"count": 1}`
 
 It's safe to say that the deployment works. Now to implement it into our website's view counter.
 
+### Hooking Up View Counter Endpoint to Website
 
+So first thing I need to do is ensure the `env.aws` file our `ViewCounter.jsx` component uses to access the API endpoint is configured with our API Gateway endpoint address. 
+
+![](../documentation/media/Screenshot%202026-01-12%20at%2011.46.14 AM.png)
+
+Since the routes for our API POST and GET point to /counter...
+
+![](../documentation/media/Screenshot%202026-01-12%20at%2011.47.41 AM.png)
+
+... we need to adjust our `ViewCounter.jsx` to fetch both the endpoint and /counter
+
+![](../documentation/media/Screenshot%202026-01-12%20at%2011.49.38 AM.png)
+
+We also need to add `"build-aws": "vite build --mode aws"` to [`package.json`](../frontend/package.json)
+to use the `env.aws` file when compiling our app
+
+Now, we need to change the mode our `npm run build` command uses within the [`upload.yml`](../aws/playbooks/upload.yml) playbook.
+
+It needs to run in `npm run build-aws`
+
+Now time to re-run `upload.yml` via our `upload` bin script.
+
+To test, I will need to invalidate the cache for our Cloudfront distribution
+
+![](../documentation/media/Screenshot%202026-01-12%20at%2012.01.02 PM.png)
+
+I reloaded my site, and tested the view counter. It didn't work. 
+
+I opened DevTools and saw this error:
+![](../documentation/media/Screenshot%202026-01-12%20at%2012.02.51 PM.png)
+
+So I added the following `cors_configuration` to my API resource in [`backend-counter.tf`](./terraform/backend-counter/backend-counter.tf)
+
+```sh
+  cors_configuration {
+    allow_origins = ["https://javier-bustos.com" "https://www.javier-bustos.com"]
+    allow_methods = ["GET", "POST", "OPTIONS"]
+    allow_headers = ["content-type"]
+    max_age       = 3600
+```
+
+So now it looks like this
+
+```sh
+resource "aws_apigatewayv2_api" "http_api" {
+  name          = "counter-http-api"
+  protocol_type = "HTTP"
+  cors_configuration {
+    allow_origins = ["https://javier-bustos.com", "https://www.javier-bustos.com"]
+    allow_methods = ["GET", "POST", "OPTIONS"]
+    allow_headers = ["content-type"]
+    max_age       = 3600
+  }
+}
+```
+
+After applying the config changes and invalidating the Cloudfront cache again, our view counter is now working
+
+![](../documentation/media/Screenshot%202026-01-12%20at%2012.10.31 PM.png)
+
+So we are all done with the AWS Frontend and Backend configuration!

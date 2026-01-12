@@ -28,7 +28,7 @@
         chdir: "{{ app_dir }}"
 
     - name: Build site
-      ansible.builtin.command: npm run build
+      ansible.builtin.command: npm run build-aws
       args:
         chdir: "{{ app_dir }}"
 
