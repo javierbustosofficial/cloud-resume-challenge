@@ -1,0 +1,50 @@
+---
+- name: Build Vite App and Upload to S3
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    app_dir: "{{ playbook_dir }}/../../frontend"
+    bucket_name: "javier-bustos.com"
+    dist_dir: "{{ app_dir }}/dist"
+  vars_files:
+  - vaults/prod.yml
+
+  tasks:
+    - name: Check Node is installed
+      ansible.builtin.command: node --version
+      changed_when: false
+
+    - name: Install dependencies (npm ci if lockfile exists, else npm install)
+      ansible.builtin.shell: |
+        set -e
+        if [ -f package-lock.json ]; then
+          npm ci
+        else
+          npm install
+        fi
+      args:
+        chdir: "{{ app_dir }}"
+
+    - name: Build site
+      ansible.builtin.command: npm run build
+      args:
+        chdir: "{{ app_dir }}"
+
+    - name: Verify dist exists
+      ansible.builtin.stat:
+        path: "{{ dist_dir }}"
+      register: dist_stat
+
+    - name: Fail if dist not found
+      ansible.builtin.fail:
+        msg: "Build output not found at {{ dist_dir }}. Check Vite config/build output."
+      when: not dist_stat.stat.exists
+
+    - name: Upload to S3 (sync dist -> bucket root)
+      ansible.builtin.command: >
+        aws s3 sync "{{ dist_dir }}/" "s3://{{ bucket_name }}/" --delete
+      environment:
+        AWS_PROFILE: "{{ AWS_PROFILE }}"
+        AWS_REGION: "{{ AWS_REGION }}"
