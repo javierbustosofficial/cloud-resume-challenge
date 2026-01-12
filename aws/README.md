@@ -99,7 +99,7 @@ For my configuration blocks, I will be using `main.tf`. This file will include t
 
 For Ansible, I created `deploy.yml` which will be the playbook I will use for the deployment. I used ChatGPT to draft a template, this is what it spit out:
 
-![](../Documentation/media/Screenshot%202026-01-11%20at%206.40.09 AM.png)
+![](../documentation/media/Screenshot%202026-01-11%20at%206.40.09 AM.png)
 
 I adjusted the `tf_dir` variable to point to the correct location of my terraform files, and removed the `aws_profile` variable. Everything else seems to be good to go.
 
@@ -118,7 +118,7 @@ I will create a variable for the `AWS_REGION` and `AWS_PROFILE` and will use the
 
 The playbook code now looks like this:
 
-![](../Documentation/media/Screenshot%202026-01-11%20at%206.51.53 AM.png)
+![](../documentation/media/Screenshot%202026-01-11%20at%206.51.53 AM.png)
 
 ## Time To Deploy
 
@@ -127,11 +127,11 @@ I could just deploy the playbook manually but I want to use a bin script just fo
 
 Script has been [created](./bin/deploy) and ran, and appears to have been successful
 
-![](../Documentation/media/Screenshot%202026-01-11%20at%206.57.29 AM.png)
+![](../documentation/media/Screenshot%202026-01-11%20at%206.57.29 AM.png)
 
 And confirmed success by checking the S3 console:
 
-![](../Documentation/media/Screenshot%202026-01-11%20at%207.04.14 AM.png)
+![](../documentation/media/Screenshot%202026-01-11%20at%207.04.14 AM.png)
 
 ## Bucket Configuration
 
@@ -160,11 +160,11 @@ I will be using Ansible to upload the website files up to the S3 bucket. I'll be
 
 I again used ChatGPT to create a first draft of the playbook. Here is the output:
 
-![](../Documentation/media/Screenshot%202026-01-11%20at%2010.27.51 PM.png)
+![](../documentation/media/Screenshot%202026-01-11%20at%2010.27.51 PM.png)
 
 I did end up including the Ansible vault as the `vars_files` to reference both the `AWS_PROFILE` and `AWS_REGION` in the last task. That is the only change I made, here is the current state of the new playbook:
 
-![](../Documentation/media/Screenshot%202026-01-11%20at%2011.05.26 PM.png)
+![](../documentation/media/Screenshot%202026-01-11%20at%2011.05.26 PM.png)
 
 ### Playbook Deployment
 
@@ -185,11 +185,11 @@ Ran the script with
 
 And appears to have been a success:
 
-![](../Documentation/media/Screenshot%202026-01-11%20at%2011.14.59 PM.png)
+![](../documentation/media/Screenshot%202026-01-11%20at%2011.14.59 PM.png)
 
 Confirmed file upload by checking the S3 bucket in the AWS Console:
 
-![](../Documentation/media/Screenshot%202026-01-11%20at%2011.15.50 PM.png)
+![](../documentation/media/Screenshot%202026-01-11%20at%2011.15.50 PM.png)
 
 Success!
 
@@ -225,12 +225,40 @@ This tells Terraform: if a DNS record with the same name and type already exists
 
 I ran `./bin/deploy` again and got no errors this time:
 
-![](../Documentation/media/Screenshot%202026-01-12%20at%202.03.57 AM.png)
+![](../documentation/media/Screenshot%202026-01-12%20at%202.03.57 AM.png)
 
 And now my website is accessible!
 
-![](../Documentation/media/Screenshot%202026-01-12%20at%202.05.32 AM.png)
+![](../documentation/media/Screenshot%202026-01-12%20at%202.05.32 AM.png)
 
 Also verified via S3 console that static-website hosting is now disabled on the S3 bucket, which is what I wanted. So now it's accessed via:
 
 User -> Cloudfront -> S3
+
+## Backend View Counter For Website
+
+So, if you look at the above screenshot, you've probably noticed the small view counter right under the main website heading. As of now, it is not functional. I will be setting up the functionality via a python-based Lambda function, API Gateway, and DynamoDB table.
+
+### Terraform Configuration
+
+Just like with our previous infrastructure, I will be deploying this view counter with Terraform, using the [`backend-counter.tf`](./terraform/backend-counter/backend-counter.tf) file.
+
+The Terraform script will use [`handler.py`](./functions/handler.py) as the Lambda function for this deployment.
+
+Deployed the template successfully using [`deploy-backend-counter`](./bin/deploy-backend-counter) bin script.
+
+DynamoDB table, API Gateway, and Lambda function were successfully created.
+
+### Testing The View Counter
+
+To test, I will be using `curl` to send HTTP request to the API Gateway endpoint, which I grabbed from the AWS Console.
+
+I received a reponse of `{"count": 0}`
+
+Next, I used `curl -X POST` to send an HTTP POST request instead of the default GET.
+
+Now, I am getting `{"count": 1}`
+
+It's safe to say that the deployment works. Now to implement it into our website's view counter.
+
+

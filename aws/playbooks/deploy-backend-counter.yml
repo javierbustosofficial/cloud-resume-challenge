@@ -1,11 +1,11 @@
 ---
-- name: Deploy S3 bucket, CloudFront, and ACM Cert with Terraform
+- name: Deploy backend counter Terraform
   hosts: localhost
   connection: local
   gather_facts: false
 
   vars:
-    tf_dir: "{{ playbook_dir }}/../terraform/cloud-infra"
+    tf_dir: "{{ playbook_dir }}/../terraform/backend-counter"
   vars_files:
     - vaults/prod.yml
 
