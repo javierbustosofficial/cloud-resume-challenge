@@ -64,24 +64,15 @@
     }
   }
 
-  /* Skills (two columns) */
-  .two-col{
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-
-    > div{
-      flex: 1;
-      min-width: 0;
-    }
-  }
-
   .ul-skills{
     padding-left: 25px;
     > li{
       padding-left: 5px;
       margin-bottom: 15px;
       line-height: 1.25;
+      strong {
+        font-weight: 800;
+      }
     }
   }
 

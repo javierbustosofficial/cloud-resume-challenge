@@ -29,23 +29,14 @@ export default function Article() {
       <section className="section">
         <h2 className="section-title">Skills</h2>
 
-        <div className="two-col">
-          <div>
-            <ul className="ul-skills">
-              <li>AWS services: EC2, VPC design, IAM policies and permissions, S3 storage, CloudWatch monitoring, and more</li>
-              <li>Infrastructure troubleshooting across Windows and cloud-hosted environments</li>
-              <li>User account management in Active Directory and Microsoft 365</li>
-              <li>Windows workstation deployment and configuration (RMM, imaging, tooling)</li>
-            </ul>
-          </div>
-
-          <div>
-            <ul className="ul-skills">
-              <li>Network essentials: DHCP/DNS, VLANs, routing basics, switch and firewall configuration support</li>
-              <li>Incident handling, root-cause analysis, and clear technical documentation</li>
-              <li>Tier 1 and Tier 2 technical support across phone, email, chat, and remote tools</li>
-            </ul>
-          </div>
+        <div className="skills">
+          <ul className="ul-skills">
+            <li><strong>Cloud Services:</strong> S3, CloudFront, API Gateway, Lambda, EC2, IAM, VPC</li>
+            <li><strong>Operating Systems:</strong> Windows 7/10/11, Windows Server, MacOS, Linux, Android, iOS</li>
+            <li><strong>Networking:</strong> TCP/IP, DNS, DHCP, VLANs, VPNs, LAN/WAN, Routers, Switches, Firewalls</li>
+            <li><strong>Tools & Applications:</strong> Terraform, Ansible, Active Directory, Microsoft 365, Google Workspace, Remote Monitoring & Management (RMM), GitHub, VS Code</li>
+            <li><strong>Languages:</strong> HCL, Python, YAML, HTML/CSS, JavaScript</li>
+          </ul>
         </div>
       </section>
 
@@ -59,16 +50,10 @@ export default function Article() {
           </div>
           <p className="job-company">Texas Health and Human Services Commission – Austin, TX</p>
           <ul>
-            <li>Senior technical position within the Deskside Support team</li>
-            <li>
-              Assist with senior-level technical projects and assignments, such as agency-wide device refreshes and
-              departmental process enhancements
-            </li>
-            <li>Daily monitoring of service and problem tickets to respond and resolve within established SLAs</li>
-            <li>Perform regular maintenance tasks to ensure optimal performance and reliability of computer systems</li>
-            <li>Set up and configure computer systems, including software, hardware, operating systems, and network settings</li>
-            <li>Maintain disaster recovery plans to ensure data integrity and system availability</li>
-            <li>Provide technical assistance to end users, including troubleshooting and training</li>
+            <li>Senior Deskside Support role, handling Tier 2/3 incidents and supporting agency-wide infrastructure initiatives within a 10,000+ user enterprise environment</li>
+            <li>Owned on-site technical setup and real-time troubleshooting for executive-level agency conferences and events, ensuring uninterrupted operations and minimal downtime</li>
+            <li>Performed system configuration and ongoing maintenance across hardware, software, operating systems, and network settings to maintain reliability and performance</li>
+            <li>Supported disaster recovery preparedness and provided advanced end-user technical assistance, including troubleshooting and training</li>
           </ul>
         </div>
 
@@ -79,18 +64,10 @@ export default function Article() {
           </div>
           <p className="job-company">Texas Health and Human Services Commission – Austin, TX</p>
           <ul>
-            <li>
-              Diagnosed and resolved basic-to-advanced hardware, software, network, or mobile device problems over the phone,
-              email, or chat; escalated issues to specialized staff or technical team leads when necessary
-            </li>
-            <li>Performed end-user device setups (desktops, laptops, mobile phones)</li>
-            <li>
-              Documented work performed using the Remedy ticketing system and ensured all service requests were completed in
-              accordance with the service-level agreement
-            </li>
-            <li>Maintained accurate inventory of hardware assets</li>
-            <li>Acted as Tier 2 support for end users within the agency</li>
-            <li>Provided excellent customer service to users ranging from entry-level positions to high-level executives and VIPs</li>
+            <li>Supported a 10,000+ user enterprise environment, providing Tier 2 support across hardware, software, network, and mobile device issues via phone, email, and chat</li>
+            <li>Resolved 200+ problem tickets per month while documenting work in Remedy and meeting established SLA requirements</li>
+            <li>Performed end-user device provisioning and lifecycle support (desktops, laptops, and mobile devices), while maintaining accurate inventory of assets</li>
+            <li>Delivered high-touch service and technical support to a diverse user base, including executives and VIP stakeholders, escalating complex issues as needed to appropriate specialized teams</li>
           </ul>
         </div>
 
@@ -101,11 +78,9 @@ export default function Article() {
           </div>
           <p className="job-company">Contigo Technology – Austin, TX</p>
           <ul>
-            <li>Resolved escalated tickets assigned by the Help Desk Tier 1 team</li>
-            <li>Traveled on-site frequently to resolve end-user issues, deploy networking equipment, and assist with IT projects</li>
-            <li>Assisted customers remotely via chat session, email, and phone</li>
-            <li>Assigned as the primary technician for a healthcare client with 13 offices in Central Texas</li>
-            <li>Provided support and assistance to the Help Desk Tier 1 team</li>
+            <li>Served as the primary technician for a healthcare client with 13 offices across Central Texas, delivering on-site support, deploying networking equipment, and assisting with IT projects</li>
+            <li>Resolved escalated Tier 2 incidents from the Tier 1 team, providing remote support via phone, email, and chat</li>
+            <li>Mentored Tier 1 technicians on complex issues, escalations, and client-facing communication</li>
           </ul>
         </div>
 
@@ -116,14 +91,8 @@ export default function Article() {
           </div>
           <p className="job-company">Contigo Technology – Austin, TX</p>
           <ul>
-            <li>Provided technical assistance with computer hardware and software</li>
-            <li>Resolved issues for clients via phone, email, or remote chat session</li>
-            <li>
-              Documented all end-user information, including the nature of the issue and resolution using the AutoTask PSA
-              ticketing system
-            </li>
-            <li>Created internal documentation to aid other technicians in problem resolution</li>
-            <li>Traveled on-site to resolve any issues that could not be resolved remotely</li>
+            <li>Provided Tier 1 technical support for hardware, software, and networking issues, assisting clients via phone, email, and remote chat. Traveled on-site to client offices when issues could not be resolved remotely</li>
+            <li>Documented incidents and resolutions in the AutoTask PSA system while creating internal documentation to support team knowledge and consistency</li>
           </ul>
         </div>
 
@@ -134,16 +103,8 @@ export default function Article() {
           </div>
           <p className="job-company">Contigo Technology – Austin, TX</p>
           <ul>
-            <li>
-              Configured and maintained end-user PCs by deploying RMM, antivirus, helpdesk tools, and company-specific
-              applications
-            </li>
-            <li>
-              Worked with Office 365, Active Directory, and other company-specific applications to create and manage end-user
-              accounts
-            </li>
-            <li>On-site travel to diagnose and repair hardware-related issues</li>
-            <li>Provided recommendations for hardware upgrades and purchases</li>
+            <li>Configured and deployed end-user PCs using RMM, antivirus, helpdesk tools, and company-specific applications, supporting account setup in Active Directory, Office 365, and Google Workspace</li>
+            <li>Performed on-site hardware troubleshooting and repairs, providing recommendations for equipment upgrades and purchases when needed</li>
           </ul>
         </div>
       </section>

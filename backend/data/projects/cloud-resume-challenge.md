@@ -1,8 +1,8 @@
 ---
 name: "Cloud Resume Challenge"
 handle: "cloud-resume-challenge"
-thumbnail: "https://placehold.co/320x200/EEE/31343C"
-description: "The Cloud Resume Challenge is a hands-on project where I built and deployed my resume as a real cloud application rather than a static webpage. It showcases my ability to design, host, and secure infrastructure using AWS services while following modern cloud and DevOps best practices. The project includes a serverless backend, infrastructure as code, and automated deployments to mirror real-world cloud workflows. It serves as a practical demonstration of how I approach cloud engineering beyond certifications."
+thumbnail: "/images/cloud-resume-challenge-logo.png"
+description: "The Cloud Resume Challenge is a hands-on project where I designed and implemented a serverless AWS-based personal website using S3 for static hosting and CloudFront as a CDN, with a visitor counter built on API Gateway, AWS Lambda, and DynamoDB. Infrastructure was provisioned using Terraform, with application logic written in Python and frontend components implemented using HTML, CSS, and JavaScript."
 ---
 
 # Work In Progress!

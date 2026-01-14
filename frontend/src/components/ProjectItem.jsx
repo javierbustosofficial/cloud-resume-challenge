@@ -9,7 +9,9 @@ export default function ProjectItem(props) {
         <p>{project.description}</p>
         <Link to={`/projects/${project.handle}`}>View Project Details</Link>
       </div>
-      <img src={project.thumbnail}></img>
+      <div className="thumb_box">
+        <img src={project.thumbnail}></img>
+      </div>
     </div>    
   );
 }
