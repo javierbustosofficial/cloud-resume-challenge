@@ -89,7 +89,7 @@ Since I want the target directory for Vite to be the [`frontend`](../frontend/) 
 
 Moving forward with the installation, I will select React for the framework JavaScript for the Variant, and will be using Rolldown-Vite
 
-![](../documentation/media/vite%20installation.png)
+![](../documentation/media/vite-installation.png)
 
 Installation is now complete.
 
