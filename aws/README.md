@@ -323,3 +323,62 @@ After applying the config changes and invalidating the Cloudfront cache again, o
 ![](../documentation/media/Screenshot%202026-01-12%20at%2012.10.31 PM.png)
 
 So we are all done with the AWS Frontend and Backend configuration!
+
+## Security Considerations
+
+Since it's best practice to not store `.tfstate` files on my repo, I will be migrating them over to S3. 
+
+### S3 Bucket Creation
+
+I will be using the aws cli to create the resource. First, the S3 bucket:
+
+```sh
+aws s3api create-bucket --bucket BUCKET-NAME --region us-east-1
+```
+
+(I replaced `BUCKET-NAME` with the name of my bucket)
+
+I then enabled versioning:
+
+```sh
+aws s3api put-bucket-versioning --bucket BUCKET-NAME --versioning-configuration Status=Enabled
+```
+
+### Define Remote Backend For Terraform
+
+I created a new `backends.tf` file for each deployment and added the following configuration block for each respective deployment:
+
+```sh
+terraform {
+  backend "s3" {
+    bucket = "crc-tf-state-prod"
+    key    = "backend-counter-state/bcs.tfstate"
+    region = "us-east-1"
+    use_lockfile = true
+    profile = "crc-machine"
+  }
+}
+```
+```sh
+terraform{
+  backend "s3" {
+    bucket = "crc-tf-state-prod"
+    key    = "cloud-infra-state/cis.tfstate"
+    region = "us-east-1"
+    use_lockfile = true
+    profile = "crc-machine"
+  }
+}
+```
+
+After running a `terraform init` command in the terminal, I was provided with the following message:
+
+![](../documentation/media/Screenshot%202026-01-17%20at%205.18.56 PM.png)
+
+I entered "yes" and verified in the S3 console that the .tfstate files were migrated.
+
+![](../documentation/media/Screenshot%202026-01-17%20at%205.37.09 PM.png)
+
+I then deleted the .tfstate files from the file system and committed the changes.
+
+

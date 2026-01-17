@@ -1,5 +1,6 @@
 provider "aws" {
   region = "us-east-1"
+  profile = "crc-machine"
 }
 
 data "aws_cloudfront_cache_policy" "caching_optimized" {
