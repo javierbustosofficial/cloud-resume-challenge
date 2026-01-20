@@ -6,7 +6,7 @@ import blogData from '../data/blogData'
 import PostItem from '../components/PostItem'
 import ViewCounter from '../components/ViewCounter'
 
-function Home() {
+export default function HomeTab() {
   const [count, setCount] = useState(0)
 
   return (
@@ -37,5 +37,3 @@ function Home() {
     </>
   )
 }
-
-export default Home

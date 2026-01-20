@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Article() {
+export default function ResumePage() {
   return (
     <article className="article">
       <section className="section">

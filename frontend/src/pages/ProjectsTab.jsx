@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import projectsData from '../data/projectsData'
 import ProjectItem from '../components/ProjectItem'
 
-function ProjectPage() {
+export default function ProjectsTab() {
   const [count, setCount] = useState(0)
 
   return (
@@ -20,5 +20,3 @@ function ProjectPage() {
     </>
   )
 }
-
-export default ProjectPage

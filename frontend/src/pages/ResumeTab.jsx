@@ -3,7 +3,7 @@ import '../assets/stylesheets/resume.css'
 import Header from '../components/Header'
 import Article from '../components/ResumePage'
 
-function Resume() {
+export default function ResumeTab() {
   const [count, setCount] = useState(0)
 
   return (
@@ -13,5 +13,3 @@ function Resume() {
     </>
   )
 }
-
-export default Resume
