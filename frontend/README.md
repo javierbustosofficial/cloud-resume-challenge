@@ -109,9 +109,9 @@ This command runs the dev script defined in the `package.json` file. It starts a
 
 ### Porting index.html Into React Components
 
-React apps work by composing different components together and rendering them dynamically in the browser using JavaScript. I will need to refactor our existing index.html file into separate React components (files), written in JSX.
+React apps work by composing different components together and rendering them dynamically in the browser using JavaScript. I will need to refactor the existing index.html file into separate React components (files), written in JSX.
 
-I will start by creating a component called [`Header.jsx`](./src/components/Header.jsx), which will contain the markup for our navigation bar.
+I will start by creating a component called [`Header.jsx`](./src/components/Header.jsx), which will contain the markup for the navigation bar.
 
 A separate component will also be created called [`ResumePage.jsx`](./src/components/ResumePage.jsx), which will consist of the resume itself
 
@@ -120,7 +120,7 @@ The parent component which will hold both `Header.jsx` and `ResumePage.jsx` will
 
 ### React Router
 
-Now we need to get React Router set up with our web app. React Router will allow us to map URLs to different components, enabling our app to control which components render based on the URL, without requiring a full page reload. 
+Now we need to get React Router set up with the web app. React Router will allow us to map URLs to different components, enabling the app to control which components render based on the URL, without requiring a full page reload. 
 
 For example, we can map the `ResumeTab.jsx` component to `/resume`, and do the same for any other pages added in the future.
 
@@ -130,14 +130,105 @@ To install:
 npm i react-router --save
 ```
 
-`--save` will add the dependency to `"dependencies"` in `package.json`. Dependencies listed there are installed for production deployments, so libraries our app needs to run (like React Router) should be listed under "dependencies" rather than "devDependencies".
+`--save` will add the dependency to `"dependencies"` in `package.json`. Dependencies listed there are installed for production deployments, so libraries the app needs to run (like React Router) should be listed under "dependencies" rather than "devDependencies".
 
 We'll be using Declarative mode. Full instructions for installation and routing can be found here: https://reactrouter.com/start/declarative/installation
 
+## Webpage Structure
 
+The website will consist of 3 main pages/tabs: Home, Resume, and Projects. 
 
+The structure is as follows:
 
+[`main.jsx`](./src/main.jsx) will contain the routes for our pages.
 
+[`HomeTab.jsx`](./src/pages/HomeTab.jsx), [`ResumeTab.jsx`](./src/pages/ResumeTab.jsx), and [`ProjectsTab.jsx`](./src/pages/ProjectsTab.jsx) will contain the three main pages I mentioned before.
 
-So far I've created two React components that render the header+navigation bar and resume page. Currently using the "main" element from the source HTML as the base layout.
+Those three pages will use components defined in [`components`](./src/components/) folder.
 
+Stylesheets will be in the [`stylesheets`](./src/assets/stylesheets/) folder.
+
+### Building Out Rest of Components
+
+I will now begin building out the other pages and components that will make up the website, along with their styling. For now, I am going for a minimal design that is simple and easy to implement. 
+
+You can view the files in [`pages`](./src/pages/), [`components`](./src/components/) and [`stylesheets`](./src/assets/stylesheets/)
+
+## Mobile Styling
+
+Time to configure mobile styling for the website. To configure mobile styling, I will be using breakpoints to ensure the website renders in a preconfigured way based on viewport width. Once the viewport width exceeds a pre-defined threshold (for example, going from a cell phone to a desktop monitor), the styling changes to make better use of the available space. This maintains readability and usability across multiple screen sizes.  
+
+To implement this in an efficient way, I will be using PostCSS `@custom-media` queries to act as named references for the breakpoints I will be defining. This will aid in defining a set viewport width threshold in pixels and ensuring styles are uniform across the pages without having to explicitly define it in every page. 
+
+### PostCSS
+
+To use `@custom-media`, we will need to install `postcss-preset-env`:
+
+```sh
+npm i -D postcss postcss-preset-env
+```
+
+I will define the configuration in a file called `postcss.config.js`. This file will be created in the Vite project root with the following:
+
+```js
+export default {
+  plugins: {
+    'postcss-preset-env': {
+      stage: 1,
+      features: {
+        'custom-media-queries': true, // enables @custom-media
+        'nesting-rules': true,         // enables CSS Nesting
+      },
+    },
+  },
+};
+```
+
+Now `@custom-media` and CSS Nesting is enabled for the website. Vite will automatically use the configuration file during development and build whenever it processes CSS. 
+
+### Breakpoints
+Before applying breakpoints, first we need to define them. This will be done via the [`breakpoint.css`](./src/assets/stylesheets/breakpoint.css) file. I will only be defining two different viewport width thresholds, using the following configuration:
+
+```css
+@custom-media --small-only (width < 768px);
+@custom-media --above-small (width >= 768px);
+```
+
+### Applying Breakpoints
+
+For each of the [`stylesheets`](./src/assets/stylesheets/) that need to use these breakpoints, I will import the `breakpoint.css` file created earlier. The following rule will need to be added at the top of each .css file where mobile styling will be set up:
+
+```css
+@import './breakpoint.css';
+```
+
+After importing, we can then add the css styling for each of the custom media references defined earlier. I only used the `--small-only` since I found that is all I needed. 
+
+For example:
+
+```css
+@media (--small-only){
+    /* mobile css goes here */
+}
+```
+
+## Data Sources
+With webpages and styling complete, it's time to start thinking about web content. For the Resume tab, the content will be hardcoded into the [`ResumePage.jsx`](./src/components/ResumePage.jsx) file, but with the Projects tab, I'd like to have it pull data from a JSON file. This way we add data to the file and have it automatically rendered by the website without needing to add a new React component for each project. This wouldn't be an issue with one or two projects, but what if I want to add five or ten? Using a JSON data source scales better.
+
+Before setting up a data source, I will create the React components that will render data.
+
+### React Components For Website Data
+Two new components will be created. The components will be named `ProjectItem.jsx` and `ProjectPage.jsx`.
+
+`ProjectItem.jsx` will be rendered as part of the Projects tab, where multiple ProjectItem components are generated by iterating over the JSON data source. These components will display the project's name, a short summary, a thumbnail image, and a "View Project Details" button that navigates to `ProjectPage.jsx`.
+
+`ProjectPage.jsx` will also contain the project's name, summary, but in addition, the project's description (almost like a blog post). There will also be a button (Back To All Projects) that takes the user back to the Projects tab.
+
+These components will load data from [`projectsData.json`](./src/data/projectsData.json).
+
+### Rendering Markdown
+Now we need to think about how we will be building out the data source for the Projects tab. I want to render markdown, which will be processed into a JSON data source, as this provides maximum flexibility when editing website content. This keeps the React application logic separated from the content itself, reducing the risk of breaking components when making content changes. This approach also scales better when content grows, since each project can live in its own `.md` file.
+
+To implement this pipeline, I will need to add a build-time processing step. A Python script will be used to parse markdown files, convert them to HTML, and generate a JSON data source for the frontend.
+
+This concludes the `frontend` configuration. I will be moving over to the [`README.md`](../backend/README.md) in [`backend`](../backend/) and will continue the documentation from there.
