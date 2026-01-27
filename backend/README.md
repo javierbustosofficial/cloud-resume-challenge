@@ -1,21 +1,30 @@
-## Render Project Eumlate Markdown
+## Python Script Setup
+To render the .md files into a JSON data source, I will be using a Python script called [`render_items.py`](./lib/render_items.py)
 
-For this project I want to be able to render markdown.
-Through my research, I've learned that rendering markdown serverside is preferred, since clientside redendering provides inconsistent results.
+Before creating the script, I will define the markdown package in [`requirements.txt`](./requirements.txt) and will install it via the following command:
 
-The `render_projects.py` file will render our json with the markdown into html.
-Eventually I'll rework this code into a Lambda function in AWS.
+```sh
+pip install -r requirements.txt
+```
+Now we can define the script in [`render_items.py`](./lib/render_items.py). Feel free to navigate there to view it. This script will be used to render markdown for both Projects and Blog posts. Blogs will be rendered from the website's home tab. 
 
-## Render Items with Frontmatter
+## Rendering Markdown with Front Matter
 
-Both my projects and blog posts rely on markdown. It would be better to colelct markdown files with Frontmatter and turn those into json objects. Possibly, having everything contained within a directory for data.
+Both project items and blog posts will rely on markdown files with front matter. These markdown files will be processed into JSON objects that the frontend can consume as a data source. Organizing content this way keeps all project and blog data structured and contained within dedicated directories.
 
-i.e `/projects/:handle.markdown`
-i.e `/blog/:date/:handle.markdown`
+Project markdown files will live under a projects directory, while blog posts will be organized by date under a blog directory. Each markdown file represents a single project or blog post and includes both metadata (via front matter) and the main content.
 
-## Tasks runner with Invoke
+Example directory structure:
 
-I am using the task runner Invoke, and refactored the render_projects into render_items so it can render both the projecrts and the blog.
+```sh
+/projects/my-project.md
+/blog/2026-01-20/my-blog-post.md
+```
+
+## Using Invoke 
+I'll be using Invoke to create two separate tasks - one for rendering projects, and the other for rendering blog posts. By defining these tasks, I can choose to render project data or blog data separately, rather than regenerating all content at once. This is useful as the site grows, since project and blog content may be updated at different times. 
+
+Each task passes the appropriate content directory ([`projects`](./data/projects/) or [`blog`](./data/blog/)) into [`render_items.py`](./lib/render_items.py), generating the corresponding JSON data source for the frontend. 
 
 ```sh
 invoke --list
