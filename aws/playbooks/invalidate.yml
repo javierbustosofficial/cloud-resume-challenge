@@ -7,7 +7,7 @@
   gather_facts: false
 
   vars_files:
-    - vaults/prod.yml   # should contain: aws_profile: "...", cloudfront_distribution_id: "..."
+    - vaults/prod.yml
 
   environment:
     AWS_PROFILE: "{{ AWS_PROFILE }}"
