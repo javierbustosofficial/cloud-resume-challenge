@@ -8,8 +8,18 @@ The solution uses Amazon S3 + CloudFront for global static content delivery, a s
 
 The project is intentionally designed to mirror real-world architectural decision-making, with explicit consideration given to cost, scalability, security, and operational simplicity.
 
+
+## Features
+
+- **Static Web Hosting:** A resume website hosted in a private S3 bucket and distributed globally through CloudFront.
+- **Custom Domain:** Route 53 managed domain name configurations.
+- **Visitor Tracking:**  A lightweight serverless backend API for a visitor counter.
+- **NoSQL Database:** Stores data in a managed DynamoDB database.
+- **Infrastructure as Code:** Utilizes Terraform and Ansible to provision and manage AWS resources.
+
 ## Architecture Overview
 
+![](./documentation/media/crc_project_architecture.png)
 
 ## Project Structure
 - [Frontend](./frontend/README.md)
