@@ -1,4 +1,4 @@
-terraform{
+terraform {
   backend "s3" {
     bucket = "crc-tf-state-prod"
     key    = "cloud-infra-state/cis.tfstate"

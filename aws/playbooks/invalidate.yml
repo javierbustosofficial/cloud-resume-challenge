@@ -1,0 +1,26 @@
+---
+# Invalidates CloudFront cache for: / and /*
+
+- name: Invalidate CloudFront cache
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - vaults/prod.yml   # should contain: aws_profile: "...", cloudfront_distribution_id: "..."
+
+  environment:
+    AWS_PROFILE: "{{ AWS_PROFILE }}"
+
+  tasks:
+    - name: Create CloudFront invalidation for / and /*
+      command: >
+        aws cloudfront create-invalidation
+        --distribution-id {{ CLOUDFRONT_DISTRIBUTION_ID }}
+        --paths / /*
+      register: invalidation_result
+
+    - name: Display Invalidation ID
+      ansible.builtin.debug:
+        msg: "Invalidation created with ID: {{ (invalidation_result.stdout | from_json).Invalidation.Id }}"
+
