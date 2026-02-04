@@ -1,0 +1,27 @@
+---
+- name: Deploy AI Chatbot
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    tf_dir: "{{ playbook_dir }}/../terraform/ai-chatbot"
+  vars_files:
+    - vaults/prod.yml
+
+  tasks:
+    - name: Terraform init
+      ansible.builtin.command: terraform init -input=false
+      args:
+        chdir: "{{ tf_dir }}"
+      environment:
+        AWS_PROFILE: "{{ AWS_PROFILE }}"
+        AWS_REGION: "{{ AWS_REGION }}"
+
+    - name: Terraform apply
+      ansible.builtin.command: terraform apply -auto-approve -input=false
+      args:
+        chdir: "{{ tf_dir }}"
+      environment:
+        AWS_PROFILE: "{{ AWS_PROFILE }}"
+        AWS_REGION: "{{ AWS_REGION }}"
