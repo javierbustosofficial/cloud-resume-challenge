@@ -4,7 +4,7 @@
 
 ## Resume Considerations
 
-For now, I want to use my [existing resume](../.old/docs/myresume.jpg) as the base for this website. Format tweaks and adjustments will likely occur, but for now I just want to get a first draft set up.
+For now, I want to use my [existing resume](../old/docs/myresume.jpg) as the base for this website. Format tweaks and adjustments will likely occur, but for now I just want to get a first draft set up.
 
 ### Existing Resume Format Generation
 
@@ -18,15 +18,15 @@ Convert this resume into HTML. Maintain style, format, and text.
 
 Below image was provided along with prompt:
 
-![](../.old/docs/myresume.jpg) 
+![](../old/docs/myresume.jpg) 
 
-This is the [generated output](../.old/docs/resume_aigen_12-27-25.html). And below is what it looks like visually before any alterations:
+This is the [generated output](../old/docs/resume_aigen_12-27-25.html). And below is what it looks like visually before any alterations:
 
-![](../.old/docs/Screenshot%202025-12-27%20at%2012.48.04 PM.png)
+![](../old/docs/Screenshot%202025-12-27%20at%2012.48.04 PM.png)
 
 I'd say it did a pretty good job as a first draft, but I do see issues with some words being bolded that shouldn't be, and it's definetely a bit cramped. I'll be rafactoring the code to improve readability and formatting at a later point, but for now this is good enough for an MVP.
 
-I went ahead and instructed Chat GPT to split the original output into separate .html and .css files, which are now located [here](../.old/public/)
+I went ahead and instructed Chat GPT to split the original output into separate .html and .css files, which are now located [here](../old/public/)
 
 ## Serve Static Website Locally
 
@@ -59,17 +59,17 @@ http-server
 ```
 As you can see, the http server is now serving ./public
 
-![](../.old/docs/http-server%20serving%20public.png)
+![](../old/docs/http-server%20serving%20public.png)
 
 And here's what the site looks on the locally hosted http server
 
-![](../.old/docs/resume%20website%20local%20server.png)
+![](../old/docs/resume%20website%20local%20server.png)
 
 ## HTML/CSS Adjustments
 
 Did some restructuring of the HTML code to better separate out the elements for editing. Added a navigation bar, since this site will consist of a few pages, and did some adjustments to the line spacing, font sizing, and bolding of the text. Here is the current result:
 
-![](../.old/docs/resume_after_edits_12-31.png)
+![](../old/docs/resume_after_edits_12-31.png)
 
 ## Frontend Configuration
 
@@ -85,7 +85,7 @@ To install Vite.js, I visited vite.dev and grapped the npm installation command 
 npm create vite@latest
 ```
 
-Since I want the target directory for Vite to be the [`frontend`](../frontend/) folder, I will need to rename the current folder, since Vite will load files into the directory and I don't want to mess with anything I currently have in there. I will rename it `frontend-dev` (later renamed [`.old`](../.old)), create a new `frontend` folder, and install Vite there.
+Since I want the target directory for Vite to be the [`frontend`](../frontend/) folder, I will need to rename the current folder, since Vite will load files into the directory and I don't want to mess with anything I currently have in there. I will rename it `frontend-dev` (later renamed [`old`](../old)), create a new `frontend` folder, and install Vite there.
 
 Moving forward with the installation, I will select React for the framework JavaScript for the Variant, and will be using Rolldown-Vite
 
